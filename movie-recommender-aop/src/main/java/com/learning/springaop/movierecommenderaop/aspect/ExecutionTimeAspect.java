@@ -7,13 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
-//@Aspect
+@Aspect
 @Configuration
 public class ExecutionTimeAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Around("execution(* com.learning.springaop.movierecommenderaop..*.*(..))")
+    //@Around("execution(* com.learning.springaop.movierecommenderaop..*.*(..))")
+    //@Around("com.learning.springaop.movierecommenderaop.aspect.JoinPointConfig.businessLayerPointcut()")
+    @Around("com.learning.springaop.movierecommenderaop.aspect.JoinPointConfig.measureTimeAnnotation()")
+
     public Object calculateExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         //note start time
         long startTime = System.currentTimeMillis();
