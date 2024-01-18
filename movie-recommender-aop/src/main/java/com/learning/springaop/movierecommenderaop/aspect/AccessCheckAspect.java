@@ -1,13 +1,14 @@
 package com.learning.springaop.movierecommenderaop.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
-@Aspect
+//@Aspect
 @Configuration
 public class AccessCheckAspect {
 
@@ -26,4 +27,5 @@ public class AccessCheckAspect {
 
         //access check logic
     }
+
 }
