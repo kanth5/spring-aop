@@ -1,20 +1,19 @@
 package com.learning.springaop.movierecommenderaop.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
-//@Aspect
+@Aspect
 @Configuration
 public class AccessCheckAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    @Before("execution(* com.learning.springaop.movierecommenderaop.business.*.*(..))")
+    @Before("com.learning.springaop.movierecommenderaop.aspect.JoinPointConfig.movieBeanPointcut()")
+    //@Before("execution(* com.learning.springaop.movierecommenderaop.business.*.*(..))")
     //@Before("execution(String com.learning.springaop.movierecommenderaop..*.*(String))") -> calls using return type String and having a parameter String
     //@Before("execution(* com.learning.springaop.movierecommenderaop..*.*Filtering(..))") -> calls having the name 'Filtering' in them
     //@Before("execution(String com.learning.springaop.movierecommenderaop..*.*(..))") -> calls using return type of String
